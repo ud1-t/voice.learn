@@ -18,7 +18,7 @@ const SidebarGroup = ({ children }) => {
             "--sidebar-width-mobile": "20rem",
         }}
         value={{ isOpen, toggleSidebar }}
-        className="bg-white"
+        className="bg-gray-100"
     >
       <AppSidebar />
         <main className={`ml-[${isOpen ? 'var(--sidebar-width)' : '0'}]`}>

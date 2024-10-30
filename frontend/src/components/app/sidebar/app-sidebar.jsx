@@ -1,5 +1,5 @@
 import { useCallback, useContext } from 'react'
-import { Calendar, Home, Inbox, Search, Settings, CircleHelp } from "lucide-react"
+import { Calendar, Home, Inbox, Search, Settings, CircleHelp, MessageSquareWarning } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -9,10 +9,9 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarFooter,
-  useSidebar,
-  SidebarContext
+  SidebarContext,
+  SidebarTrigger
 } from "@/components/ui/sidebar"
-import { SidebarTrigger } from "@/components/ui/sidebar"
 
 // Menu items
 const items = [
@@ -32,10 +31,10 @@ export function AppSidebar() {
 
   return (
     <Sidebar collapsible="icon">
-      <div className="flex items-center justify-between p-2">
+      <div className="flex items-center justify-between p-2 ">
         {
           open && (
-              <span className="text-gray-600 dark:text-white">Voice.Learn</span>
+              <span className="text-gray-600 dark:text-white m-2 text-xl">Voice.Learn</span>
           )
         }
         <SidebarTrigger onClick={handleToggle()} className="bg-white dark:bg-dark-950 border border-gray-400 rounded-md p-1">
@@ -43,16 +42,16 @@ export function AppSidebar() {
         </SidebarTrigger>
       </div>
 
-      <SidebarContent>
+      <SidebarContent className="my-4">
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu side="left" variant="sidebar">
               {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
+                <SidebarMenuItem key={item.title} className='my-1'>
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
+                    <a href={item.url} className='flex flex-row gap-4'>
+                      <item.icon style={{ width: "20px", height: "20px" }} />
+                      <span className='text-base'>{item.title}</span>
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -66,17 +65,17 @@ export function AppSidebar() {
         <SidebarMenu side="left" variant="sidebar">
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <a href="www.google.com">
-                <CircleHelp />
-                <span>Help</span>
+              <a href="www.google.com" className='flex flex-row gap-4'>
+                <CircleHelp style={{ width: "20px", height: "20px" }} />
+                <span className='text-base'>Help</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <a href="www.google.com">
-                <CircleHelp />
-                <span>Feedback</span>
+              <a href="www.google.com" className='flex flex-row gap-4'>
+                <MessageSquareWarning style={{ width: "20px", height: "20px" }} />
+                <span className='text-base'>Feedback</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>

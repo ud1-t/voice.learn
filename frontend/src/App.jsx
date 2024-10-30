@@ -1,12 +1,14 @@
 import SidebarGroup from '@/components/app/sidebar/SidebarGroup'
 import Navbar from '@/components/app/navgroup/Navbar'
 
-function App({ children }) {
+function App() {
 
   return (
     <>
       <Navbar />
-      <SidebarGroup />
+      <div className="flex ">
+        <SidebarGroup />
+      </div>
     </>
   )
 }
